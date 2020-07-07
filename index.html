@@ -6,26 +6,58 @@
       <meta name="Nelson" content="PFE Assignment">
 	  <meta http-equiv="Access-Control-Allow-Origin" content="*">
      
-       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+       <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&display=swap" rel="stylesheet">
 
       <title>NODEMCU Controller</title>
 
      <style>
-		.footer {
-  		position: fixed;
-  		left: 0;
-  		bottom: 0;
-  		width: 100%;
-  		color: white;
-  		text-align: center;
-		}
+		.footer
+    {
+        position: relative;
+        clear: both;
+    }
+    	*{
+    		font-family: 'PT Sans', sans-serif;
+    		color: #E2E2E2;
+    	}
+    	a footer{
+    		color: #E2E2E2;
+    	}
+    	button{
+    		color: #3A405A;
+    	}
+    	.usage{
+    		background-color: #BDD1EF;
+    		padding-bottom: 10px;
+    		margin: 10px 100px 10px 100px;
+    		border-radius: 3px;
+    		border: 10px solid #3A405A;
+    	}
+    	.usage p,h3{
+    		color: #112234;
+    	}
+
+    	.groupmember{
+    		background-color: #CEDDF3;
+    		padding-bottom: 10px;
+    		margin: 10px 100px 10px 100px;
+    		border-radius: 3px;
+    		border: 10px solid #5F6995;
+    	}
+
+    	.groupmember p,h3,a{
+    		color: #112234;
+    	}
 	</style>
 	<!-- referencing from https://iotmonk.com/lessons/controlling-esp12e-nodemcu-led-website-using-thingspeak-anywhere-worldpart-2/  -->
+<!-- 
+	working code: IoT_Assignemnt 4.0 -->
   	</head>
-      <body bgcolor="#907D8B">
+      <body bgcolor="#112234">
    <center>
-		<h1 style="font-family: Helvetica;color: black;">NODEMCU Controller</h1>
-		<h5 style="font-family: Helvetica;color: black;">Programming for Engineers Use</h5><br>
+		<h1>NODEMCU Controller</h1>
+		<h5>Programming for Engineers Use</h5><br>
 	</center>
    
    <div class="center">
@@ -40,19 +72,88 @@
 		<br><br>
 	 </div>
 	</div>
-	
-	<footer class="footer">
-		<center>
-			<h4 style="font-family: Helvetica;color: white;">&copy; 2020 | <a href="https://github.com/mocha234">BHM</a></h4>
+	<div>
+		<center><h2>Graph of Temperature against Time</h2></center>
+	</div>
+	<div>
+		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+	</center>
+	</div>
+	<div>
+		<center><h2>LM 35's Real-Time's Reading</h2></center>
+	</div>
+	<div>
+		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197862"></iframe>
+
+	</center>
+	</div>
+
+	<div>
+		<center><h2>LM 35's Real-Time's Temperature Gauge</h2></center>
+	</div>
+	<div>
+		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197947"></iframe>
+
+
+	</center>
+	</div>
+
+	<div class="usage">
+		<center><section>
+			<h3>How to use?</h3>
+			<p>
+				1. Copy Write API key from "https://thingspeak.com/channels/-YOUR CHANNEL NO.-/api_keys" 
+			</p>
+			<p>
+				2.Paste it in the Textbox given.
+			</p>
+			<p>
+				3.Toggle ON/OFF at your will!
+			</p>
+			<p>
+				*Side note: Due to limitation of free version of Thingspeak, it will only update every 15 seconds!
+			</p>
+				
+		</section>
 		</center>
-	</footer>
+	</div>
+
+	<div class="groupmember">
+		<center><section>
+			<h3>Group Members</h3>
+			<p>
+				1. WONG KAH QUAN(HA18015)
+			</p>
+			<p>
+				2.SYAMILL IRHAMIE BIN SHAMSUDIN(HA18025)
+			</p>
+			<p>
+				3.MUHD HARIZ ASYRAF BIN MARZUKI(HA18024)
+			</p>
+
+			<p>
+				<a href="https://github.com/mocha234/pfe_iot_assignment">Clcik here for source code @ Github!</a>
+			</p>
+				
+		</section>
+		</center>
+	</div>
+		
+	
+	<div class="footer">
+	<footer>
+		<center>
+			<h4>&copy; 2020 | BHM</a></h4>
+		</center>
+	</footer></div>
+	
 
 
     </body>
     <script>
 		document.getElementById('D1-on').addEventListener('click', function() {
 				var ip = document.getElementById('ip').value;
-				var url = "http://api.thingspeak.com/update?api_key="+ ip + "&field1=1"
+				var url = "https://api.thingspeak.com/update.json?api_key="+ ip + "&field2=40"
 				$.getJSON(url, function(data) {
 					console.log(data);
 				});
@@ -60,7 +161,7 @@
 		
 		document.getElementById('D1-off').addEventListener('click', function() {
 				var ip = document.getElementById('ip').value;
-				var url = "http://api.thingspeak.com/update?api_key="+ ip + "&field1=0"
+				var url = "https://api.thingspeak.com/update.json?api_key="+ ip + "&field2=0"
 				$.getJSON(url, function(data) {
 					console.log(data);
 				});
