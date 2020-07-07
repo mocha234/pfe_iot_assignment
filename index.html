@@ -21,6 +21,13 @@
     		font-family: 'PT Sans', sans-serif;
     		color: #E2E2E2;
     	}
+
+    	.center {
+ 		 margin: auto;
+  		width: 50%;
+  		text-align: center;
+ 		 padding: 10px;
+		}
     	a footer{
     		color: #E2E2E2;
     	}
@@ -54,16 +61,16 @@
 <!-- 
 	working code: IoT_Assignemnt 4.0 -->
   	</head>
-      <body bgcolor="#112234">
-   <center>
+      <body style="background-color: #112234">
+   <div class="center">
 		<h1>NODEMCU Controller</h1>
 		<h5>Programming for Engineers Use</h5><br>
-	</center>
+	</div>
    
    <div class="center">
-	<div align="center" class="form">
-       <form action="" method="get">
-			  <input type="text" id="ip" class="ip" placeholder="Thingspeak Write API Key"></input>
+	<div class="form">
+       <form action="#" method="get">
+			  <input type="text" id="ip" class="ip" placeholder="Thingspeak Write API Key">
 			  <br><br>
               <button type="button" id="D1-on" class="button button1" >ON LM35</button>
 			  <button type="button" id="D1-off" class="button button3" >OFF LM 35</button>
@@ -73,33 +80,33 @@
 	 </div>
 	</div>
 	<div>
-		<center><h2>Graph of Temperature against Time</h2></center>
+		<div class="center"><h2>Graph of Temperature against Time</h2></div>
 	</div>
 	<div>
-		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-	</center>
+		<div class="center"><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+	</div>
 	</div>
 	<div>
-		<center><h2>LM 35's Real-Time's Reading</h2></center>
+		<div class="center"><h2>LM 35's Real-Time's Reading</h2></div>
 	</div>
 	<div>
-		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197862"></iframe>
+		<div class="center"><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197862"></iframe>
 
-	</center>
+	</div>
 	</div>
 
 	<div>
-		<center><h2>LM 35's Real-Time's Temperature Gauge</h2></center>
+		<div class="center"><h2>LM 35's Real-Time's Temperature Gauge</h2></div>
 	</div>
 	<div>
-		<center><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197947"></iframe>
+		<div class="center"><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1087323/widgets/197947"></iframe>
 
 
-	</center>
+	</div>
 	</div>
 
 	<div class="usage">
-		<center><section>
+		<div class="center"><section>
 			<h3>How to use?</h3>
 			<p>
 				1. Copy Write API key from "https://thingspeak.com/channels/-YOUR CHANNEL NO.-/api_keys" 
@@ -115,11 +122,11 @@
 			</p>
 				
 		</section>
-		</center>
+		</div>
 	</div>
 
 	<div class="groupmember">
-		<center><section>
+		<div class="center"><section>
 			<h3>Group Members</h3>
 			<p>
 				1. WONG KAH QUAN(HA18015)
@@ -136,21 +143,18 @@
 			</p>
 				
 		</section>
-		</center>
+		</div>
 	</div>
 		
 	
 	<div class="footer">
 	<footer>
-		<center>
-			<h4>&copy; 2020 | BHM</a></h4>
-		</center>
+		<div class="center">
+			<h4>&copy; 2020 | BHM</h4>
+		</div>
 	</footer></div>
 	
-
-
-    </body>
-    <script>
+<script>
 		document.getElementById('D1-on').addEventListener('click', function() {
 				var ip = document.getElementById('ip').value;
 				var url = "https://api.thingspeak.com/update.json?api_key="+ ip + "&field2=40"
@@ -168,4 +172,7 @@
 		});
 			
 	</script>
+
+    </body>
+    
 </html>
