@@ -11,15 +11,15 @@ https://thingspeak.com/channels/1087323/
 
 ### Resources
 
-NODEMCU
-LM35
-Thingspeak
+NODEMCU,
+LM35,
+Thingspeak,
 
-Github
-GitBash
+Github,
+GitBash,
 
-HTML
-CSS
+HTML,
+CSS,
 Javascript
 
 For Thingspeak API Key, please contact mocha234.
