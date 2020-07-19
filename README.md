@@ -8,6 +8,10 @@ Thingspeak Visual Display's Channel:
 
 https://thingspeak.com/channels/1087323/
 
+Feed in JSON:
+
+https://api.thingspeak.com/channels/1087323/feeds.json
+
 
 ### Resources
 
